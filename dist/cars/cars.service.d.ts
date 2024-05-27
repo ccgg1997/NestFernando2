@@ -5,7 +5,7 @@ export declare class CarsService {
         brand: string;
         model: string;
     }[];
-    findCarById(id: number): {
+    findOneById(id: number): {
         id: number;
         brand: string;
         model: string;

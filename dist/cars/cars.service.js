@@ -14,32 +14,32 @@ let CarsService = class CarsService {
             {
                 id: 1,
                 brand: 'Toyota',
-                model: 'Prado'
+                model: 'Corolla'
             },
             {
                 id: 2,
-                brand: "Mazda",
-                model: "CX3 "
+                brand: 'Honda',
+                model: 'Civic'
             },
             {
                 id: 3,
-                brand: "BMW",
-                model: "116-m"
-            }
+                brand: 'Jeep',
+                model: 'Cherokee'
+            },
         ];
     }
     findAll() {
         return this.cars;
     }
-    findCarById(id) {
+    findOneById(id) {
         const car = this.cars.find(car => car.id === id);
         if (!car)
-            throw new common_1.NotFoundException(`Car with id '${id}' not found `);
+            throw new common_1.NotFoundException(`Car with id '${id}' not found`);
         return car;
     }
 };
-exports.CarsService = CarsService;
-exports.CarsService = CarsService = __decorate([
+CarsService = __decorate([
     (0, common_1.Injectable)()
 ], CarsService);
+exports.CarsService = CarsService;
 //# sourceMappingURL=cars.service.js.map

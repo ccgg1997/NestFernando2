@@ -11,13 +11,13 @@ const common_1 = require("@nestjs/common");
 const cars_module_1 = require("./cars/cars.module");
 let AppModule = class AppModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+AppModule = __decorate([
     (0, common_1.Module)({
         imports: [cars_module_1.CarsModule],
         controllers: [],
         providers: [],
-        exports: []
+        exports: [],
     })
 ], AppModule);
+exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

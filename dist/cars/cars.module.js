@@ -12,11 +12,11 @@ const cars_controller_1 = require("./cars.controller");
 const cars_service_1 = require("./cars.service");
 let CarsModule = class CarsModule {
 };
-exports.CarsModule = CarsModule;
-exports.CarsModule = CarsModule = __decorate([
+CarsModule = __decorate([
     (0, common_1.Module)({
         controllers: [cars_controller_1.CarsController],
-        providers: [cars_service_1.CarsService]
+        providers: [cars_service_1.CarsService],
     })
 ], CarsModule);
+exports.CarsModule = CarsModule;
 //# sourceMappingURL=cars.module.js.map
