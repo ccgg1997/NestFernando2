@@ -76,7 +76,6 @@ __decorate([
 ], CarsController.prototype, "deleteCar", null);
 CarsController = __decorate([
     (0, common_1.Controller)('cars'),
-    (0, common_1.UsePipes)(common_1.ValidationPipe),
     __metadata("design:paramtypes", [cars_service_1.CarsService])
 ], CarsController);
 exports.CarsController = CarsController;
