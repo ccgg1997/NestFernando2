@@ -8,8 +8,5 @@ export declare class CarsController {
     getCarById(id: string): import("./interfaces/car.interface").Car;
     createCar(createCardDto: CreateCarDto): import("./interfaces/car.interface").Car;
     updateCar(id: string, updateCarDto: UpdateCarDto): import("./interfaces/car.interface").Car;
-    deleteCar(id: string): {
-        method: string;
-        id: string;
-    };
+    deleteCar(id: string): import("./interfaces/car.interface").Car;
 }

@@ -43,15 +43,20 @@ let CarsService = class CarsService {
         this.cars.push(car);
         return car;
     }
-    update(id, updateCardDto) {
+    update(id, updateCarDto) {
         let carDB = this.findOneById(id);
         this.cars = this.cars.map(car => {
             if (car.id === id) {
-                carDB = Object.assign(Object.assign(Object.assign({}, carDB), updateCardDto), { id });
+                carDB = Object.assign(Object.assign(Object.assign({}, carDB), updateCarDto), { id });
                 return carDB;
             }
             return car;
         });
+        return carDB;
+    }
+    delete(id) {
+        let carDB = this.findOneById(id);
+        this.cars = this.cars.filter(car => car.id != id);
         return carDB;
     }
 };

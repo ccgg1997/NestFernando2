@@ -5,5 +5,6 @@ export declare class CarsService {
     findAll(): Car[];
     findOneById(id: string): Car;
     create(createCardDto: CreateCarDto): Car;
-    update(id: string, updateCardDto: UpdateCarDto): Car;
+    update(id: string, updateCarDto: UpdateCarDto): Car;
+    delete(id: string): Car;
 }

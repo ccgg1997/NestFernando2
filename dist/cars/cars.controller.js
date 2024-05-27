@@ -34,10 +34,7 @@ let CarsController = class CarsController {
         return this.carsService.update(id, updateCarDto);
     }
     deleteCar(id) {
-        return {
-            method: 'delete',
-            id
-        };
+        return this.carsService.delete(id);
     }
 };
 __decorate([
@@ -48,7 +45,7 @@ __decorate([
 ], CarsController.prototype, "getAllCars", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id', new common_1.ParseUUIDPipe({ version: '5' }))),
+    __param(0, (0, common_1.Param)('id', new common_1.ParseUUIDPipe({ version: '4' }))),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
@@ -70,7 +67,7 @@ __decorate([
 ], CarsController.prototype, "updateCar", null);
 __decorate([
     (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
