@@ -38,6 +38,11 @@ let CarsService = class CarsService {
             throw new common_1.NotFoundException(`Car with id '${id}' not found`);
         return car;
     }
+    create(createCardDto) {
+        const car = Object.assign({ id: (0, uuid_1.v4)() }, createCardDto);
+        this.cars.push(car);
+        return car;
+    }
 };
 CarsService = __decorate([
     (0, common_1.Injectable)()

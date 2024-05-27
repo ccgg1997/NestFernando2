@@ -5,7 +5,7 @@ export declare class CarsController {
     constructor(carsService: CarsService);
     getAllCars(): import("./interfaces/car.interface").Car[];
     getCarById(id: string): import("./interfaces/car.interface").Car;
-    createCar(body: CreateCarDto): CreateCarDto;
+    createCar(createCardDto: CreateCarDto): import("./interfaces/car.interface").Car;
     updateCar(id: string, body: any): any;
     deleteCar(id: string): {
         method: string;

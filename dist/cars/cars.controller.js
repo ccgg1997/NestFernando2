@@ -26,8 +26,8 @@ let CarsController = class CarsController {
     getCarById(id) {
         return this.carsService.findOneById(id);
     }
-    createCar(body) {
-        return body;
+    createCar(createCardDto) {
+        return this.carsService.create(createCardDto);
     }
     updateCar(id, body) {
         return body;
