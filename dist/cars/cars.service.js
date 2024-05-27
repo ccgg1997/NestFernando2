@@ -43,6 +43,17 @@ let CarsService = class CarsService {
         this.cars.push(car);
         return car;
     }
+    update(id, updateCardDto) {
+        let carDB = this.findOneById(id);
+        this.cars = this.cars.map(car => {
+            if (car.id === id) {
+                carDB = Object.assign(Object.assign(Object.assign({}, carDB), updateCardDto), { id });
+                return carDB;
+            }
+            return car;
+        });
+        return carDB;
+    }
 };
 CarsService = __decorate([
     (0, common_1.Injectable)()

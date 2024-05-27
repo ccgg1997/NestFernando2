@@ -1,8 +1,9 @@
 import { Car } from './interfaces/car.interface';
-import { CreateCarDto } from './dto/create-car.dto';
+import { CreateCarDto, UpdateCarDto } from './dto/index';
 export declare class CarsService {
     private cars;
     findAll(): Car[];
     findOneById(id: string): Car;
     create(createCardDto: CreateCarDto): Car;
+    update(id: string, updateCardDto: UpdateCarDto): Car;
 }
