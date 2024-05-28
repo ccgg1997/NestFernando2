@@ -8,21 +8,21 @@ import { DeleteCarDto } from './dto/delete-car.dto';
 export class CarsService {
 
     private cars: Car[] = [
-        {
-            id: uuid(),
-            brand: 'Toyota',
-            model: 'Corolla' 
-        },
-        {
-            id: uuid(),
-            brand: 'Honda',
-            model: 'Civic' 
-        },
-        {
-            id: uuid(),
-            brand: 'Jeep',
-            model: 'Cherokee' 
-        },
+        // {
+        //     id: uuid(),
+        //     brand: 'Toyota',
+        //     model: 'Corolla' 
+        // },
+        // {
+        //     id: uuid(),
+        //     brand: 'Honda',
+        //     model: 'Civic' 
+        // },
+        // {
+        //     id: uuid(),
+        //     brand: 'Jeep',
+        //     model: 'Cherokee' 
+        // },
     ];
 
 
@@ -48,23 +48,26 @@ export class CarsService {
         return car;
     }
 
-    update(id:string, updateCarDto: UpdateCarDto){
+    update(id, updateCarDto) {
         let carDB = this.findOneById(id);
-        this.cars = this.cars.map(car=>{
-            if(car.id === id){
-                carDB = {...carDB,...updateCarDto,id};
+        this.cars = this.cars.map(car => {
+            if (car.id === id) {
+                carDB = Object.assign(Object.assign(Object.assign({}, carDB), updateCarDto), { id });
                 return carDB;
             }
             return car;
-        })
-
+        });
         return carDB;
-
     }
 
     delete(id:string){
         let carDB = this.findOneById(id);
-        this.cars = this.cars.filter(car=>car.id!=id);
+        this.cars = this.cars.filter(car=>car.id != id);
         return carDB;
+    }
+
+    fillCarsWithSeedData(cars:Car[]){
+        this.cars = cars;
+
     }
 }

@@ -8,12 +8,38 @@ import { Brand } from './entities/brand.entity';
 export class BrandsService {
 
   private brands: Brand[] = [
-    {
-      id:uuid(),
-      name: 'Toyota',
-      createdAt: new Date().getTime()
-    }
-  ];
+    // {
+    //     id: uuid(),
+    //     name: 'Toyota',
+    //     createdAt: new Date().getTime()
+    // },
+    // {
+    //     id: uuid(),
+    //     name: 'Ford',
+    //     createdAt: new Date().getTime()
+    // },
+    // {
+    //     id: uuid(),
+    //     name: 'Honda',
+    //     createdAt: new Date().getTime()
+    // },
+    // {
+    //     id: uuid(),
+    //     name: 'Chevrolet',
+    //     createdAt: new Date().getTime()
+    // },
+    // {
+    //     id: uuid(),
+    //     name: 'BMW',
+    //     createdAt: new Date().getTime()
+    // },
+    // {
+    //     id: uuid(),
+    //     name: 'Audi',
+    //     createdAt: new Date().getTime()
+    // }
+]
+;
   create(createBrandDto: CreateBrandDto) {
     const{name} = createBrandDto;
     const brand: Brand = {
@@ -28,7 +54,7 @@ export class BrandsService {
   }
 
   findAll() {
-    return `This action returns all brands`;
+    return this.brands;
   }
 
   findOne(id: string) {
@@ -37,11 +63,33 @@ export class BrandsService {
     return brand;
   }
 
-  update(id: number, updateBrandDto: UpdateBrandDto) {
-    return `This action updates a #${id} brand`;
+  update(id: string, updateBrandDto: UpdateBrandDto) {
+
+    let brandDB = this.findOne( id );
+
+    this.brands = this.brands.map(
+      brand =>{
+        if (brand.id === id){
+          brandDB.updatedAt = new Date().getTime();
+          brandDB ={...brandDB, ...updateBrandDto, id};
+          return brandDB;
+        }
+        return brand;
+      }
+    )
+
+    return brandDB;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} brand`;
+  remove(id: string) {
+    let brandDB = this.findOne( id );
+    this.brands = this.brands.filter(brand=>brand.id != id)
+
+    return brandDB;
   }
+
+  fillBrandsWithSeedData(brands:Brand[]){
+    this.brands = brands;
+
+}
 }

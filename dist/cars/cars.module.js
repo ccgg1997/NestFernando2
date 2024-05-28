@@ -16,6 +16,7 @@ CarsModule = __decorate([
     (0, common_1.Module)({
         controllers: [cars_controller_1.CarsController],
         providers: [cars_service_1.CarsService],
+        exports: [cars_service_1.CarsService]
     })
 ], CarsModule);
 exports.CarsModule = CarsModule;
